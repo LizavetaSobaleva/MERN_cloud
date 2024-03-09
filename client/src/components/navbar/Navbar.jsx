@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './navbar.less'
 import Logo from '../../assets/img/logo.png'
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Input from '../UI/input/Input'
+import { getFiles, searchFiles } from '../../actions/file'
+
+import { showLoader } from '../../reducers/appReducer'
 
 const Navbar = () => {
   const isAuth = useSelector(state => state.user.isAuth)
+  const currentDir = useSelector(state => state.files.currentDir)
+  const dispatch = useDispatch()
+  const [searchName, setSearchName] = useState('')
+  const [searchTimout, setSearchTimout] = useState(false)
+
+  function searchChangeHandler(e) {
+    setSearchName(e.target.value)
+    if(searchTimout !== false) {
+      clearTimeout(searchTimout)
+    }
+    dispatch(showLoader())
+    if(e.target.value !== '') {
+      setSearchTimout(setTimeout((value) => {
+        dispatch(searchFiles(value))
+      }, 500, e.target.value))
+    } else {
+      dispatch(getFiles(currentDir))
+    }
+    
+
+  }
   
 
   return (
@@ -26,7 +50,10 @@ const Navbar = () => {
         :
         <>
           <div className="navbar__header">
-            <Input type='search' placeholder="Type to search..."/>
+            <Input type='search' placeholder="Type to search..."
+              value={searchName}
+              onChange={e => searchChangeHandler(e)}
+            />
           </div>
           <div className="navbar__btns">user name</div>
         </>

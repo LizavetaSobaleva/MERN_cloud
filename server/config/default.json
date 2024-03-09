@@ -1,6 +1,6 @@
 {
   "serverPort" : 8000,
-  "dbUrl": "mongodb+srv://{username}:{password}@cloud.w2eiezq.mongodb.net/?retryWrites=true&w=majority",
+  "dbUrl": "mongodb+srv://sobalevalizaveta:Swv4pgCtD56J5zKG@cloud.w2eiezq.mongodb.net/?retryWrites=true&w=majority",
   "secretKey": "mern-secket-key",
   "filePath": "/Users/mac/Documents/Projects/MERN_cloud/server/files",
   "staticPath": "/Users/mac/Documents/Projects/MERN_cloud/server/static"

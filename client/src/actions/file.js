@@ -101,3 +101,18 @@ export function deleteFile(file) {
     }
   }
 }
+
+export function searchFiles(search) {
+  return async (dispatch) => {
+    try {
+      const response = await instanceAxios.get(`files/search?search=${search}`,
+        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+      )
+      dispatch(setFiles(response.data))
+    } catch (e) {
+      alert(e?.response?.data?.message)
+    } finally {
+      dispatch(hideLoader())
+    }
+  }
+}
