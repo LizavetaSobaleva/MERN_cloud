@@ -1,0 +1,48 @@
+@import '../../utils/colors.less';
+
+.navbar {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid @boarders;
+
+    &__content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+    }
+
+    &__logo {
+        height: 50px;
+        margin-right: 8px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-left: 12px;
+        font-size: 24px;
+        font-weight: 700;
+        color: @primary;
+    }
+
+    &__btns {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: 12px;
+    }
+
+    &__registration {
+        margin-left: 24px;
+    }
+
+    Input {
+        width: 40vw;
+    }
+
+}
