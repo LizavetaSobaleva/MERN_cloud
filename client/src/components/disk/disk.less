@@ -5,6 +5,21 @@
 
     &__btns{
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .secondaryButton {
+            padding: 4px;
+
+            &:hover {
+                background-color: @background-color;
+            }
+
+            img {
+                width: 28px;
+                height: 28px;
+            }
+        }
     }
 
     button {

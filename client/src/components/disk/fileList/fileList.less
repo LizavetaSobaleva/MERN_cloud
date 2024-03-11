@@ -68,6 +68,37 @@
     }
 }
 
+.fileplate {
+    margin: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__back {
+        width: 150px;
+        height: 150px;
+        margin: 4px;
+        padding: 8px;
+        border: 1px solid @boarders;
+        border-radius: 8px;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: ease-in 50ms all;
+
+        img {
+            height: 60px;
+            opacity: 0.5;
+        }
+
+        &:hover {
+            background-color: #f9fafc;
+            cursor: pointer;
+        }
+    }
+}
+
 
 .file-enter-active {
     animation: file-enter 500ms forwards;

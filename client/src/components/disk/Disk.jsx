@@ -9,11 +9,18 @@ import { setPopupDisplay } from "../../reducers/fileReducer";
 import upload from "../../assets/img/upload.svg"
 import plus from "../../assets/img/plus.svg"
 import Uploader from "./uploader/Uploader";
+import SecondaryButton from "../UI/secondaryButton/SecondaryButton";
+import list from "../../assets/img/list.svg";
+import list_active from "../../assets/img/list_primary.svg";
+import plate from "../../assets/img/grid.svg";
+import plate_active from "../../assets/img/grid_primary.svg";
+import { setFileView } from "../../reducers/appReducer";
 
 const Disk = () => {
   const dispatch = useDispatch()
   const currentDir = useSelector(state => state.files.currentDir)
   const [dragEnter, setDragEnter] = useState(false)
+  const fileView = useSelector(state => state.app.view)
 
   useEffect(() => {
     dispatch(getFiles(currentDir))
@@ -53,6 +60,14 @@ const Disk = () => {
         <div className="disk">
           <div className="disk__btns">
             <PrimaryButton onClick={() => showPopupHandler()}>Create folder</PrimaryButton>
+            <div className="disk__view">
+              <SecondaryButton onClick={() => dispatch(setFileView('list'))}>
+                <img src={fileView === 'list' ? list_active : list} alt="" className='disk__list'/>
+              </SecondaryButton>
+              <SecondaryButton onClick={() => dispatch(setFileView('plate'))}>
+                <img src={fileView === 'plate' ? plate_active : plate} alt="" className='disk__plate'/>
+              </SecondaryButton>
+            </div>
           </div>
 
           {!dragEnter ? 

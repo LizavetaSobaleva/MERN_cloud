@@ -19,7 +19,7 @@ const UploadFile = ({file}) => {
                 <ProgressBar progress={file.progress}/>
             </div>
             <SecondaryButton onClick={() => dispatch(removeUploadFile(file.id))}>
-            <img src={close} alt='' className='popup__close'/>
+                <img src={close} alt='' className='popup__close'/>
             </SecondaryButton>
             
 

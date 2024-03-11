@@ -13,6 +13,7 @@ import sizeFormat from '../../../../utils/sizeFormat'
 const File = ({file}) => {
     const dispatch = useDispatch()
     const currentDir = useSelector(state => state.files.currentDir)
+    const fileView = useSelector(state => state.app.view)
 
     function openHandler() {
       if(file.type === 'dir') {
@@ -32,25 +33,49 @@ const File = ({file}) => {
     }
 
 
-  return (
-    <div className='file' onClick={() => openHandler(file)}>
-        <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className='file__img'/>
-        <div className="file__name">{file.name}</div>
-        <div className="file__date">{file.date.slice(0, 10)}</div>
-        <div className="file__size">{file.size !== 0 && sizeFormat(file.size)}</div>
-        <div className="file__actions">
-          <SecondaryButton style={{padding: 8}}>
-            <img src={options} alt="" className='file__menu'/>
-          </SecondaryButton>
-            <div className="file__options">
-              <Popup>
-                {file.type !== 'dir' && <SecondaryButton onClick={(e) => downloadClickHandler(e)}>Download</SecondaryButton>}
-                <SecondaryButton onClick={(e) => deleteClickHandler(e)}>Delete</SecondaryButton>
-              </Popup>
-            </div>
-        </div>
-    </div>
-  )
+  if (fileView === 'list') {
+    return (
+      <div className='file' onClick={() => openHandler(file)}>
+          <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className='file__img'/>
+          <div className="file__name">{file.name}</div>
+          <div className="file__date">{file.date.slice(0, 10)}</div>
+          <div className="file__size">{file.size !== 0 && sizeFormat(file.size)}</div>
+          <div className="file__actions">
+            <SecondaryButton style={{padding: 8}}>
+              <img src={options} alt="" className='file__menu'/>
+            </SecondaryButton>
+              <div className="file__options">
+                <Popup>
+                  {file.type !== 'dir' && <SecondaryButton onClick={(e) => downloadClickHandler(e)}>Download</SecondaryButton>}
+                  <SecondaryButton onClick={(e) => deleteClickHandler(e)}>Delete</SecondaryButton>
+                </Popup>
+              </div>
+          </div>
+      </div>
+    )
+  }
+
+  if (fileView === 'plate') {
+    return (
+      <div className='file-plate' onClick={() => openHandler(file)}>
+          <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className='file-plate__img'/>
+          <div className="file-plate__name">{file.name}</div>
+          <div className="file-plate__date">{file.date.slice(0, 10)}</div>
+          <div className="file-plate__size">{file.size !== 0 && sizeFormat(file.size)}</div>
+          <div className="file-plate__actions">
+            <SecondaryButton style={{padding: 8}}>
+              <img src={options} alt="" className='file-plate__menu'/>
+            </SecondaryButton>
+              <div className="file-plate__options">
+                <Popup>
+                  {file.type !== 'dir' && <SecondaryButton onClick={(e) => downloadClickHandler(e)}>Download</SecondaryButton>}
+                  <SecondaryButton onClick={(e) => deleteClickHandler(e)}>Delete</SecondaryButton>
+                </Popup>
+              </div>
+          </div>
+      </div>
+    )
+  }
 }
 
 export default File
