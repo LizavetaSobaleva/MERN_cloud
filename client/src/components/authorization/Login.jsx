@@ -21,12 +21,12 @@ const Login = () => {
         <div className="authorization__form">
           <div className="authorization__item">
             <label>Email</label>
-            <Input value={email} setValue={setEmail} type="email" placeholder="Enter your email" />
+            <Input value={email} onChange={(event) => setEmail(event.target.value)} type="email" placeholder="Enter your email" />
           </div>
 
           <div className="authorization__item">
             <label>Password</label>
-            <Input value={password} setValue={setPassword} type="password" placeholder="Enter your password" />
+            <Input value={password} onChange={(event) => setPassword(event.target.value)} type="password" placeholder="Enter your password" />
           </div>
 
           <PrimaryButton onClick={() => dispatch(login(email, password))}>Log in</PrimaryButton>

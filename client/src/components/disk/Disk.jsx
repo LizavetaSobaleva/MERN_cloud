@@ -21,6 +21,8 @@ const Disk = () => {
   const currentDir = useSelector(state => state.files.currentDir)
   const [dragEnter, setDragEnter] = useState(false)
   const fileView = useSelector(state => state.app.view)
+  const listView = fileView === 'list' ? list_active : list
+  const plateView = fileView === 'plate' ? plate_active : plate
 
   useEffect(() => {
     dispatch(getFiles(currentDir))
@@ -62,10 +64,10 @@ const Disk = () => {
             <PrimaryButton onClick={() => showPopupHandler()}>Create folder</PrimaryButton>
             <div className="disk__view">
               <SecondaryButton onClick={() => dispatch(setFileView('list'))}>
-                <img src={fileView === 'list' ? list_active : list} alt="" className='disk__list'/>
+                <img src={listView} alt="" className='disk__list'/>
               </SecondaryButton>
               <SecondaryButton onClick={() => dispatch(setFileView('plate'))}>
-                <img src={fileView === 'plate' ? plate_active : plate} alt="" className='disk__plate'/>
+                <img src={plateView} alt="" className='disk__plate'/>
               </SecondaryButton>
             </div>
           </div>

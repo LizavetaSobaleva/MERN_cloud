@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { logout } from '../../reducers/userReducer'
 import Logo from '../../assets/img/logo.png'
 import SecondaryButton from '../UI/secondaryButton/SecondaryButton'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
     const dispatch = useDispatch()
@@ -11,10 +12,12 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
         <div className="sidebar__content">
-          <div className="sidebar__header">
+          <NavLink to="/">
+            <div className="sidebar__header">
               <img src={Logo} alt="" className="sidebar__logo"/>
               MERN cloud
-          </div>
+            </div>
+          </NavLink>
           <div className="sidebar__logout" onClick={() => dispatch(logout())}>
             <SecondaryButton>Log out</SecondaryButton>
           </div>

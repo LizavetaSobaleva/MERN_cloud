@@ -48,3 +48,31 @@ export const auth = () => {
           }
      }
 }
+
+export const uploadAvatar = (file) => {
+     return async dispatch => {
+          try {
+               const formData = new FormData()
+               formData.append('file', file)
+               const response = await instanceAxios.post('files/avatar', formData,
+                    { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+               )
+               dispatch(setUser(response.data))
+          } catch (e) {
+               console.log(e)
+          }
+     }
+}
+
+export const deleteAvatar = () => {
+     return async dispatch => {
+          try {
+               const response = await instanceAxios.delete('files/avatar',
+                    { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+               )
+               dispatch(setUser(response.data))
+          } catch (e) {
+               console.log(e)
+          }
+     }
+}

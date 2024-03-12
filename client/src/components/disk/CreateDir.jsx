@@ -23,7 +23,7 @@ const CreateDir = () => {
     <div className="createdir" onClick={() => dispatch(setPopupDisplay('none'))} style={{ display: popupDisplay }}>
       <div className="createdir__content">
         <Popup header="Create new folder" onClick={() => dispatch(setPopupDisplay('none'))}>
-          <Input type="text" placeholder="Enter folder name..." value={dirName} setValue={setDirName} />
+          <Input type="text" placeholder="Enter folder name..." value={dirName} onChange={(event) => setDirName(event.target.value)} />
           <PrimaryButton onClick={() => createHandler()}>Create</PrimaryButton>
         </Popup>
       </div>
