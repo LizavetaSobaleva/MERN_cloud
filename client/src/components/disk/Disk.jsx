@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import './disk.less'
 import { useDispatch, useSelector } from "react-redux";
-import { getFiles, uploadFile } from "../../actions/file";
+import { getFiles, getStructure, uploadFile } from "../../actions/file";
 import PrimaryButton from "../UI/primaryButton/PrimaryButton";
 import FileList from "./fileList/FileList";
 import CreateDir from "./CreateDir";
@@ -23,10 +23,15 @@ const Disk = () => {
   const fileView = useSelector(state => state.app.view)
   const listView = fileView === 'list' ? list_active : list
   const plateView = fileView === 'plate' ? plate_active : plate
+  const dirStack = useSelector(state => state.files.dirStack)
+  
 
   useEffect(() => {
     dispatch(getFiles(currentDir))
+    dispatch(getStructure())
   }, [currentDir])
+
+  console.log(dirStack)
 
   function showPopupHandler() {
     dispatch(setPopupDisplay('flex'))

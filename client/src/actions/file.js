@@ -1,5 +1,5 @@
 import { hideLoader, showLoader } from "../reducers/appReducer"
-import { addFile, deleteFileAction, setFiles } from "../reducers/fileReducer"
+import { addFile, deleteFileAction, setFiles, setStructure } from "../reducers/fileReducer"
 import { addUploadFile, changeUploadFile, showUploader } from "../reducers/uploadReducer"
 import { instanceAxios } from "./user"
 
@@ -109,6 +109,21 @@ export function searchFiles(search) {
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       )
       dispatch(setFiles(response.data))
+    } catch (e) {
+      alert(e?.response?.data?.message)
+    } finally {
+      dispatch(hideLoader())
+    }
+  }
+}
+
+export function getStructure() {
+  return async (dispatch) => {
+    try {
+      const response = await instanceAxios.get(`files/structure`,
+        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+      )
+      dispatch(setStructure(response.data))
     } catch (e) {
       alert(e?.response?.data?.message)
     } finally {

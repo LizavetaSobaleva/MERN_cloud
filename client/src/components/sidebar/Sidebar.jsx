@@ -5,9 +5,12 @@ import { logout } from '../../reducers/userReducer'
 import Logo from '../../assets/img/logo.png'
 import SecondaryButton from '../UI/secondaryButton/SecondaryButton'
 import { NavLink } from 'react-router-dom'
+import Navigation from './navigation/Navigation'
+
 
 const Sidebar = () => {
     const dispatch = useDispatch()
+
 
   return (
     <div className='sidebar'>
@@ -18,6 +21,9 @@ const Sidebar = () => {
               MERN cloud
             </div>
           </NavLink>
+          <div className="sidebar__navigation">
+            <Navigation/>
+          </div>
           <div className="sidebar__logout" onClick={() => dispatch(logout())}>
             <SecondaryButton>Log out</SecondaryButton>
           </div>

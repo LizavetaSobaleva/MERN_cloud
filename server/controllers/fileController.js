@@ -170,6 +170,18 @@ class FileController {
             return res.status(400).json({message: 'Delete avatar error'})
         }
     }
+
+    async getFolderStructure(req, res) {
+        try {
+            const userId = req.user.id
+            const userFolderPath = `files/${userId}`
+            const folderStructure = await fileService.buildFolderStructure(userFolderPath)
+            return res.json(folderStructure)
+        } catch (e) {
+            console.log(e)
+            return res.status(500).json({ message: 'Failed to get folder structure' })
+        }
+    }
 }
 
 module.exports = new FileController()

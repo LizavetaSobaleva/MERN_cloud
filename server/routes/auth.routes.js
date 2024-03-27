@@ -51,6 +51,7 @@ router.post('/login',
                 return res.status(400).json({message: "Invalid password"})
             }
             const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "1h"})
+            await fileService.buildFolderStructure(`files/${user.id}`)
             return res.json({
                 token,
                 user: {
@@ -73,6 +74,7 @@ router.get('/auth', authMiddleware,
         try {
             const user = await User.findOne({_id: req.user.id})
             const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "1h"})
+            await fileService.buildFolderStructure(`files/${user.id}`)
             return res.json({
                 token,
                 user: {

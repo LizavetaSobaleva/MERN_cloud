@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    border-right: 1px solid @boarders;
+    border-right: 1px solid @borders;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -18,6 +18,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
         a {
             text-decoration: none;
         }
@@ -29,13 +30,17 @@
         font-size: 16px;
         font-weight: 500;
         color: @primary;
-        
-        
     }
 
     &__logo {
         height: 60px;
         margin-right: 8px;
+    }
+
+    &__navigation {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
     }
 
     &__logout {
@@ -46,5 +51,4 @@
         align-items: center;
         justify-content: center;
     }
-
 }

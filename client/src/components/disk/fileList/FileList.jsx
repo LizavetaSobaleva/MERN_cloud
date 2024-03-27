@@ -19,7 +19,6 @@ const FileList = () => {
   const sortedFiles = files.slice().sort((a,b) => a[fieldName].localeCompare(b[fieldName]))
 
   const dirStack = useSelector((state) => state.files.dirStack)
-  
 
   function backClickHandler() {
     dispatch(popFromStack(currentDir));
