@@ -58,7 +58,7 @@ const Navbar = () => {
             />
           </div>
           <div className="navbar__user">
-            Hello, {currentUser.name}!
+            <div className="navbar__message">Hello, {currentUser.name}!</div>
             <NavLink to="/profile">
               <img src={avatar} alt="" className="navbar__avatar"/>
             </NavLink>

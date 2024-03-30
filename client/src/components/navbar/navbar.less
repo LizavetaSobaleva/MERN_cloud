@@ -35,6 +35,11 @@
         flex-direction: row;
         margin-left: auto;
         margin-right: 12px;
+
+        a {
+            text-decoration: none;
+            color: @primary;
+        }
     }
 
     &__registration {
@@ -63,4 +68,12 @@
         }
     }
 
+}
+
+@media only screen and (max-width: 800px) {
+    .navbar {
+        &__message {
+            display: none;
+        }
+    }
 }

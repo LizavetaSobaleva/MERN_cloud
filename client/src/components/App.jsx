@@ -26,12 +26,14 @@ function App() {
         
         {!isAuth ?
         <>
-          <Navbar/>
-          <Routes>
-            <Route path='/registration' element={<Registration />}/>
-            <Route path='/login' element={<Login />}/>
-            <Route path="*" element={<Navigate to="/login" replace/>}/>
-          </Routes>
+          <div className='login'>
+            <Navbar/>
+            <Routes>
+              <Route path='/registration' element={<Registration />}/>
+              <Route path='/login' element={<Login />}/>
+              <Route path="*" element={<Navigate to="/login" replace/>}/>
+            </Routes>
+            </div>
           </>
           :
           <>

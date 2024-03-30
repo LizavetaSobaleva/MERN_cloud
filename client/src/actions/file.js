@@ -50,8 +50,7 @@ export function uploadFile(file, dirId) {
       const response = await instanceAxios.post(`files/upload`, formData, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
                 onUploadProgress: progressEvent => {
-            const totalLength = progressEvent.event.lengthComputable ? progressEvent.event.total : progressEvent.event.target.getResponseHeader('content-length') || progressEvent.event.target.getResponseHeader('x-decompressed-content-length');
-            console.log('total', totalLength)
+            const totalLength = progressEvent.event.lengthComputable ? progressEvent.event.total : progressEvent.event.target.getResponseHeader('content-length') || progressEvent.event.target.getResponseHeader('x-decompressed-content-length')
             if(totalLength) {
               uploadFile.progress = Math.round((progressEvent.loaded * 100) / totalLength)
               dispatch(changeUploadFile(uploadFile))

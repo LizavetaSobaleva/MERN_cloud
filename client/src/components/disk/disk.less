@@ -2,6 +2,8 @@
 
 .disk {
     padding: 12px 24px 40px 24px;
+    height: 100%;
+    overflow-y: auto;
 
     &__btns{
         display: flex;
@@ -108,4 +110,14 @@
         padding: 16px 20px;
 
     }
+}
+
+@media only screen and (max-width: 600px){
+    .disk {
+
+        &__upload-message {
+            display: none;
+        }
+    }
+
 }

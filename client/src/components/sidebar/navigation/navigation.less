@@ -8,17 +8,34 @@
         cursor: pointer;
         border-radius: 4px;
         color: @text;
+        display: flex;
+        align-items: center;
 
         &:hover {
             background-color: @lightgrey;
         }
     }
+    
+    &__icon {
+        height: 28px;
+        margin-right: 8px;
+    }
+
+    &__dropdown {
+        margin-right: 12px;
+        margin-left: auto;
+    }
+
+    &__content {
+        display: none;
+        margin-left: 24px;
+    }
 }
 
 .diritem {
     color: @text;
-    margin-left: 8px;
-    transition: ease-in 50ms all;
+    margin-left: 12px;
+    transition: all 500ms ease-in;
     
 
     &__content {
@@ -32,66 +49,32 @@
         &:hover {
             background-color: @lightgrey;
         }
-        
     }
-
 
     &__title {
         width: 80%;
     }
 
-    &__dropdown {
-        width: 20%;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        &:hover {
-            background-color: @lightgrey;
-            
-        }
-    }
-
-    &__icon {
-        height: 24px;
-    }
-
-    .flipped {
-        animation-name: flip;
-        animation-duration: 500ms;
-        animation-fill-mode: forwards;
-    }
-
-    @keyframes flip {
-        from {
-            transform: scaleY(0);
-        }
-        to {
-            transform: scaleY(-1);
-        }
-      }
-
     &__subitem {
         display: none;
         border-left: 1px solid @borders;
     }
+}
 
-    .visible {
-        display: flex;
-        flex-direction: column;
-        animation-name: slideIn;
-        animation-duration: 500ms;
-      }
-      
-      @keyframes slideIn {
-        from {
-          transform: translateY(-30%);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
+.visible {
+    display: flex;
+    flex-direction: column;
+    animation-name: slideIn;
+    animation-duration: 500ms;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

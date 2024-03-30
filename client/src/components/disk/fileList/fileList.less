@@ -15,6 +15,8 @@
         font-size: 14px;
         font-weight: 400;
         cursor: default;
+        position: sticky;
+        top: -14px;
     }
 
     &__type {
@@ -113,4 +115,19 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+@media only screen and (max-width: 660px){
+    .filelist {
+
+        &__date {
+            display: none
+        }
+    
+        &__size {
+            display: none
+        }
+    }
+
 }

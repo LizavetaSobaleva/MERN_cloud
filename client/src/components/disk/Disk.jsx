@@ -23,15 +23,12 @@ const Disk = () => {
   const fileView = useSelector(state => state.app.view)
   const listView = fileView === 'list' ? list_active : list
   const plateView = fileView === 'plate' ? plate_active : plate
-  const dirStack = useSelector(state => state.files.dirStack)
   
 
   useEffect(() => {
     dispatch(getFiles(currentDir))
     dispatch(getStructure())
   }, [currentDir])
-
-  console.log(dirStack)
 
   function showPopupHandler() {
     dispatch(setPopupDisplay('flex'))
@@ -81,7 +78,7 @@ const Disk = () => {
             <div className="disk__upload" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
               <label htmlFor="disk__upload-input" className="disk__upload-label">
                 <img src={upload} alt="" className='disk__upload-img'/>
-                Click and choose or drag files to this area to upload
+                <div className="disk__upload-message">Click and choose or drag files to this area to upload</div>
               </label>
               <input onChange={(event) => fileUploadHandler(event)} multiple={true} type="file" id="disk__upload-input" className="disk__upload-input"/>
             </div>

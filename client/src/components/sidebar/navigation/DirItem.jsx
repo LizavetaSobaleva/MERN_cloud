@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './navigation.less'
 import { useDispatch} from 'react-redux'
 import { pushToStack, setCurrentDir, clearStack } from '../../../reducers/fileReducer'
-import down from '../../../assets/img/down.svg'
+import DropdownButton from '../../UI/dropdownButton/DropdownButton'
 
 const DirItem = ({file, title}) => {
   const dispatch = useDispatch()
@@ -32,7 +32,7 @@ const DirItem = ({file, title}) => {
 
         {hasChildren && (
           <div className="diritem__dropdown" onClick={toggleDropdown}>
-            <img src={down} className={`diritem__icon ${isOpen ? 'flipped' : ''}`} />
+            <DropdownButton />
           </div>
         )}
       </div>
