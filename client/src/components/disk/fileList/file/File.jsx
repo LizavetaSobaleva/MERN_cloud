@@ -27,6 +27,10 @@ const File = ({file}) => {
       downloadFile(file)
     }
 
+    function renameClickHandler(e) {
+
+    }
+
     function deleteClickHandler(e) {
       e.stopPropagation()
       dispatch(deleteFile(file))
@@ -47,6 +51,7 @@ const File = ({file}) => {
               <div className="file__options">
                 <Popup>
                   {file.type !== 'dir' && <SecondaryButton onClick={(e) => downloadClickHandler(e)}>Download</SecondaryButton>}
+                  {/* <SecondaryButton onClick={(e) => renameClickHandler(e)}>Rename</SecondaryButton> */}
                   <SecondaryButton onClick={(e) => deleteClickHandler(e)}>Delete</SecondaryButton>
                 </Popup>
               </div>
@@ -69,6 +74,7 @@ const File = ({file}) => {
               <div className="file-plate__options">
                 <Popup>
                   {file.type !== 'dir' && <SecondaryButton onClick={(e) => downloadClickHandler(e)}>Download</SecondaryButton>}
+                  {/* <SecondaryButton onClick={(e) => renameClickHandler(e)}>Rename</SecondaryButton> */}
                   <SecondaryButton onClick={(e) => deleteClickHandler(e)}>Delete</SecondaryButton>
                 </Popup>
               </div>

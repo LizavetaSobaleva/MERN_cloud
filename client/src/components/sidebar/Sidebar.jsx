@@ -19,8 +19,8 @@ const Sidebar = () => {
     }
 
     window.addEventListener('resize', function() {
-      var screenWidth = window.innerWidth
-      var sidebar = document.querySelector('.sidebar')
+      const screenWidth = window.innerWidth
+      const sidebar = document.querySelector('.sidebar')
     
       if (screenWidth <= 768) {
         sidebar.classList.add('compressed')
