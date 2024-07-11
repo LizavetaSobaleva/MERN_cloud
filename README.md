@@ -1,8 +1,12 @@
 # MERN Stack Cloud Storage
 
 ## DEMO: https://client-0y7p.onrender.com/
-
 This is a cloud storage application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It allows users to securely store and manage their files in the cloud.
+
+For deployment, I separated the client and server parts into two different repositories. I am also updating these repositories and adding tests to them.
+### client: https://github.com/LizavetaSobaleva/client
+### server: https://github.com/LizavetaSobaleva/server
+
 
 ## Architecture
 The project consists of two main components: the client-side application and the server-side application. The client-side application, built using React.js, provides the user interface for interacting with the cloud storage system. On the other hand, the server-side application, developed using Node.js and Express.js, handles user authentication, file management operations, and communication with the database.
